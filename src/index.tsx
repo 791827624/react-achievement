@@ -4,10 +4,13 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import KeepAliveDemo from "./pages/KeepAliveDemo/index";
-
-// import
+import { HomePage } from "./pages/index";
 
 const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <HomePage />,
+  },
   {
     path: "/keep-alive",
     element: <KeepAliveDemo />,

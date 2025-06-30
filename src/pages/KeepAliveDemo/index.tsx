@@ -4,22 +4,21 @@ import React, { useState, useSyncExternalStore } from "react";
 function KeepAliveDemo() {
   const [show, setShow] = useState(true);
 
-  const [n1, s1] = useState(0);
+  const [value, setValue] = useState(0);
   const [n2, s2] = useState(0);
 
   return (
     <KeepAliveProvider>
       <div>
-        {show && 123}
-        <KeepAlive name="1">
-          <div>test1</div>
-        </KeepAlive>
-        <KeepAlive name="2">
-          <div>test2</div>
-        </KeepAlive>
-        <KeepAlive name="3">
-          <div>test3</div>
-        </KeepAlive>
+        <button onClick={() => { setShow(v => !v) }}>隐藏</button>
+        {/* {show && 123} */}
+        {show && <KeepAlive name="1">
+          {<input defaultValue={1} />}
+        </KeepAlive>}
+        {show && <div>
+          {<input defaultValue={1} />}
+        </div>}
+
       </div>
     </KeepAliveProvider>
   );
